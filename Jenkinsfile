@@ -4,7 +4,7 @@ agent any
 
 
 stages {
-agent any  
+
 stage( ' Build - Maven package ' ){
                  agent any
                      steps {

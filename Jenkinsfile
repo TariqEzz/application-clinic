@@ -9,7 +9,7 @@ stage( ' Build - Maven package ' ){
                  agent any
                      steps {
                          script {
-                               sh ' mvn  clean install '
+                               sh ' mvn clean install -P MySQL '
                              
                           }
                         }

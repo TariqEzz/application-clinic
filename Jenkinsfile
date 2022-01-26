@@ -1,6 +1,6 @@
 pipeline   {
 agent any
-environements {
+environement {
   registryUrl = "testacr1989.azurecr.io"
   registryCredential = "ACR"
 }

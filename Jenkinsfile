@@ -1,9 +1,5 @@
 pipeline   {
 agent any
-environement {
-  registryUrl = "testacr1989.azurecr.io"
-  registryCredential = "ACR"
-}
 
 
 stages {
@@ -35,7 +31,7 @@ stage('Publish image to acr') {
              agent any
           steps{ 
                      script {
-                         docker.withRegistry( "http://${registryUrl}", registryCredential ) {
+                         docker.withRegistry( "http://${testacr1989.azurecr.io}", ACR ) {
                         dockerImage.push()} 
                 }
             }

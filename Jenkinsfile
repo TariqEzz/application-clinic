@@ -1,8 +1,9 @@
 pipeline   {
 agent any
 environment {
-     registryUrl = "testacr1989.azurecr.io"
-     registryCredential = "ACR"
+     registryName = 'testacr1989'
+     registryUrl = 'testacr1989.azurecr.io'
+     registryCredential = 'ACR'
  }
 
 stages {

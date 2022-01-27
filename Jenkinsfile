@@ -4,7 +4,8 @@ environment {
      registryName = 'testacr1989'
      registryUrl = 'testacr1989.azurecr.io'
      registryCredential = 'ACR'
- }
+     dockerImage = ''
+            }
 
 stages {
 
@@ -17,31 +18,27 @@ stage( ' Build - Maven package ' ){
                                  }
                             }
                                    }
-stage('Generer image docker de l app avec tomcat') 
-  {      agent any 
-   steps      {        
+stage('Generer image docker de l app avec tomcat') { 
+                agent any 
+                     steps {        
      echo 'Generating docker image'        
-     //sh 'docker build -t petclinic:latest .' 
-       script {
-           dockerImage = docker.build registryName
-             }   
-              }  
-   
-   
-   
-  }
+                  //sh 'docker build -t petclinic:latest .' 
+                        script {
+                             dockerImage = docker.build registryName
+                                                   }   
+                           }  
+                               }
 
-   
-            
 
-stage('Publish image to acr') {
-             agent any
-          steps{ 
+stage('Publish image to acr')   {
+               agent any
+                   steps{ 
                      script {
                          docker.withRegistry( "http://${registryUrl}", registryCredential ) {
-                        dockerImage.push()} 
-                }
-            }
+                        dockerImage.push()
+                                                                                             } 
+                             }
+                         }
+                              }
         }
-}
-  }
+           }

@@ -24,8 +24,8 @@ stage('Generer image docker de l app avec tomcat')
    
   }
 
-   }
-            }
+   
+            
 
 stage('Publish image to acr') {
              agent any
@@ -36,3 +36,5 @@ stage('Publish image to acr') {
                 }
             }
         }
+}
+  }

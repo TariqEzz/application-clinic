@@ -21,7 +21,10 @@ stage('Generer image docker de l app avec tomcat')
   {      agent any 
    steps      {        
      echo 'Generating docker image'        
-     sh 'docker build -t petclinic:latest .'     
+     //sh 'docker build -t petclinic:latest .' 
+       script {
+           dockerImage = docker.build registryName
+             }   
               }  
    
    

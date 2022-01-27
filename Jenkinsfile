@@ -31,7 +31,7 @@ stage('Publish image to acr') {
              agent any
           steps{ 
                      script {
-                         docker.withRegistry( "http://testacr1989.azurecr.io", "ACR" ) {
+                         docker.withRegistry( "http://testacr1989.azurecr.io", ACR ) {
                         dockerImage.push()} 
                 }
             }

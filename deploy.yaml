@@ -1,0 +1,33 @@
+--
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-tariq
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azure-tariq
+  template:
+    metadata:
+      labels:
+        app: azure-tariq
+    spec:
+      containers:
+      - name: azure-tariq
+        image: testacr1989.azurecr.io/testacr1989:latest
+        ports:
+        - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-loadbalancer-svc
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+  selector:
+    app: azure-tariq
+  
